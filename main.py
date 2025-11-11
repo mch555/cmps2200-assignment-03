@@ -38,8 +38,24 @@ def med_top_down(S, T, MED={}):
     return MED[(S, T)]
     
 def fast_MED(S, T):
-    # TODO -  implement top-down memoization
-    pass
+    n=len(S)
+    m=len(T)
+    #initialize the DP table
+    #DP[i][j] stores the MED between S[:i] and T[:j]
+    DP = [[0]* (m+1) for _ in range(n+1)]
+    #base case:initialize the first row and column
+    for i in range(n+1):
+        DP[i][0]=i
+    for j in range(m+1):
+        DP[0][j]=j
+    for i in range(1, n+1):
+        for j in range(1, m+1):
+            if S[i-1]==T[j-1]:
+                DP[i][j]=DP[i-1][j-1]
+            else:
+                DP[i][j]=1 + min(DP[i][j-1], DP[i-1][j])
+    return DP[n][m]
+           
 
 def fast_align_MED(S, T):
     # TODO - keep track of alignment
