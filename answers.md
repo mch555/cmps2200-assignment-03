@@ -52,3 +52,13 @@ Let C be an optimal coin set for N, and let d be any coin in C. The remaining se
 prove by contradiction:
 
 If a smaller coin set C" existed for N', then C" U {d} would be a smaller solution for N than C. This contradicts the assumption that C was optimal for N. Thus, C" must be optimal for N' and the property hlds.
+
+**2c.)**
+Bottom-Up programming approach. Let DP[n] be the minimum number of coins for amount n
+
+recurrence: For n=1 to N, compute the minimum num of coins by trying every denomination
+$$DP[n] = 1 + \min_{D_i \in D, D_i \le n} \{DP[n - D_i]\}$$
+
+base case: DP[0]=0
+
+work and span: W(N)=O(N*k) and S(N)=O(N)
