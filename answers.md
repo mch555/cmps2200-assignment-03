@@ -34,3 +34,10 @@ the num of bits in N (which is [log2N]+1) and each step takes constant time
 for Span, This is because the selection of each coin depends on the remaining amount from the step before, creating a sequential dependency chain, matching the span to work of O(logn).
 
 
+2a.)
+Suppose we have coin denominations D={1, 6, 10} and we want to make change for N=12
+The greedy algorithm would choose the largest coin, 10. The remaining amount is 2, which requires two coins of val 1. 
+
+greedy result-> 3 coins (10+1+1)
+optimal result->2 coins (6+6)
+Therefore the greedy approach is not the optimal choice.
