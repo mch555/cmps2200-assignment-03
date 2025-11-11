@@ -42,3 +42,13 @@ The greedy algorithm would choose the largest coin, 10. The remaining amount is 
 greedy result-> 3 coins (10+1+1)
 optimal result->2 coins (6+6)
 Therefore the greedy approach is not the optimal choice.
+
+**2b.)**
+An optimal solution for an amount N is made up of an optimal solution for a subproblem N', where N' is the amount remaining after the final coin in the optimal solution is selected.
+
+**proof**
+
+Let C be an optimal coin set for N, and let d be any coin in C. The remaining set C'=C/{d} must be an optimal solution for the subproblem N'=N-d. 
+prove by contradiction:
+
+If a smaller coin set C" existed for N', then C" U {d} would be a smaller solution for N than C. This contradicts the assumption that C was optimal for N. Thus, C" must be optimal for N' and the property hlds.
